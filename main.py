@@ -33,3 +33,5 @@ elif TCP_or_UDP == "2" or TCP_or_UDP.upper() == "UDP":
     log.error("UDP Blocked")
 else:
     log.error("ERROR")
+
+input("Press Enter to exit...")
