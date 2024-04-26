@@ -1,3 +1,4 @@
+version="2.0.0"
 from lets_common_log import logUtils as log
 import socket
 import requests
@@ -6,14 +7,12 @@ import threading
 import time
 
 try:
-    with open("version.txt", "r") as f:
-        version = f.read()
-        newVersion = requests.get("https://raw.githubusercontent.com/skchqhdpdy/port/main/version.txt").text
-        if version != newVersion:
-            log.warning(f"업데이트 있음!\n현재버전 : {version}\n최신버전 : {newVersion}")
-            log.chat("https://github.com/skchqhdpdy/port")
-            if input("Press Enter to exit...") != "ignore":
-                exit()
+    newVersion = requests.get("https://raw.githubusercontent.com/skchqhdpdy/port/main/main.py").text.split("\n")[0]
+    if version != newVersion:
+        log.warning(f"업데이트 있음!\n현재버전 : {version}\n최신버전 : {newVersion}")
+        log.chat("https://github.com/skchqhdpdy/port")
+        if input("Press Enter to exit...") != "ignore":
+            exit()
 except Exception as e:
     log.warning(e)
     log.error(f"\n{traceback.format_exc()}")
