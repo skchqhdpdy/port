@@ -1,3 +1,6 @@
 __pycache__/
+build/
+dist/
+*.spec
 TCP-scan-list.txt
 UDP-scan-list.txt
