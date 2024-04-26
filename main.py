@@ -1,4 +1,3 @@
-version="2.0.0"
 from lets_common_log import logUtils as log
 import socket
 import requests
@@ -7,7 +6,8 @@ import threading
 import time
 
 try:
-    newVersion = requests.get("https://raw.githubusercontent.com/skchqhdpdy/port/main/main.py").text.split("\n")[0]
+    version = "2.0.0"
+    newVersion = requests.get("https://raw.githubusercontent.com/skchqhdpdy/port/main/version.txt").text
     if version != newVersion:
         log.warning(f"업데이트 있음!\n현재버전 : {version}\n최신버전 : {newVersion}")
         log.chat("https://github.com/skchqhdpdy/port")
@@ -75,6 +75,6 @@ while True:
         for thread in threads:
             thread.join()
 
-    log.chat(f"{time.time() - st} Sec")
+    log.chat(f"{round(time.time() - st, 2)} Sec")
     if input("Press exit to EXIT...").lower() == "exit":
         break
